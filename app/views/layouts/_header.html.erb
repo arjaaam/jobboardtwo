@@ -1,0 +1,22 @@
+<div class="ui grey one inverted  menu">
+  <a class="active item">
+    Home
+  </a>
+  <div class="ui dropdown item">
+     Categories
+     <i class="dropdown icon"></i>
+     <div class="menu">
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name") %>
+     </div>
+   </div>
+
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+
+  </div>
+</div>
