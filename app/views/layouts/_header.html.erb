@@ -1,12 +1,11 @@
 <div class="ui grey one inverted  menu">
-  <a class="active item">
-    Home
-  </a>
+    <%= link_to "JobBoard", jobs_path, class: "item" %>
+  
   <div class="ui dropdown item">
      Categories
      <i class="dropdown icon"></i>
      <div class="menu">
-        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name") %>
+
      </div>
    </div>
 

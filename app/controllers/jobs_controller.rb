@@ -5,15 +5,17 @@ class JobsController < ApplicationController
   end
 
   def show
+
   end
   def index
+      @job=Job.all.order(created_at: :desc)
   end
 
   def create
       @job=Job.new(job_params)
       if @job.save
         flash[:notice]="Job was successfully created"
-        redirect_to new_job_path
+        redirect_to jobs_path
       else
         render 'new'
       end

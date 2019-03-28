@@ -1,7 +1,21 @@
-<% provide(:title, 'Post a job') %>
+
+<% if @job.errors.any? %>
+<div class="ui form error">
+  <div class="ui error message">
+      The form contains <%= pluralize(@job.errors.count, "error") %>.
+
+    <ul>
+    <% @job.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
+
+<% end %>
 
 <form class="ui form segment" method="POST" align="center" action="/create" >
-
+<div class="container" align="center">
   <h4 class="ui dividing header">Basic Information</h4>
   <div class=" ten wide field" >
     <label>Title</label>
@@ -12,8 +26,8 @@
 
     </div>
 
-  <div class="two fields">
-    <div class="five wide field">
+
+    <div class="five wide field" >
       <label>Category</label>
       <div class="ui fluid search selection dropdown">
         <input type="hidden" name="category_id">
@@ -43,7 +57,7 @@
       </select>
     </div>
 
-  </div>
+
   <h4 class="ui dividing header">Location information</h4>
 
 
@@ -91,4 +105,5 @@
   <input id="x"  type="hidden" name="description">
    <trix-editor input="x"></trix-editor>
 <input type="submit" value="Submit" class="ui button" />
+</div>
 </form>

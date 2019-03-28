@@ -7,3 +7,29 @@
   </div>
 
   </div>
+</div>
+  <% @job.each do |job| %>
+
+  <div class="ui form segment" style="padding-top: 20px">
+
+    <div class="ui feed" >
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/jenny.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+
+            <%= days=(Date.current-job.created_at.to_date).to_i
+
+              %> days ago
+          </div>
+          <div class="summary">
+              <%=  job.title   %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
