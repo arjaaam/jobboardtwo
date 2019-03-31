@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   has_many :categories
+  belongs_to :companies ,optional: true
   validates :title, :category_id,:jobtype,:headquarter,:region,:applylink,:description, presence: true
   validates :headquarter, length: { minimum: 3, maximum: 20 }
   validates :applylink, length: { minimum: 7}
