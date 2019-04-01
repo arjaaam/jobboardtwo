@@ -14,8 +14,15 @@ class JobsController < ApplicationController
   def index
 
 #  @company=Company.all.order(created_at: :desc)#.include(:jobs)
-  @job=Job.all.order(created_at: :desc)#.include(:jobs)
+  #  if params[:category].blank?
 
+      @job=Job.all.order(created_at: :desc)#.group(@category.name)#.count.map{ |k,v| k << v }#.map{ |k,v| [k.first,k.last,v.length]}
+
+      #(:category_id)#.group_by{:title}#.include(:jobs)
+  #  else
+      #@category_id=Category.find_by(name: params[:category]).id
+    #  @job=Job.where[category_id: @category_id].order(created_at: :desc)
+#    end
 
   end
 

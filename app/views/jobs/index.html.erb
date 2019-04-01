@@ -8,10 +8,14 @@
 
   </div>
 </div>
-  <% @job.each do |cat| %>
+    <% @category.each do |kategori|  %>
 
+
+
+
+    <% @job.each do |cat| %>
+      <% if cat.category_id==kategori.id %>
   <div class="ui form segment" style="padding-top: 20px">
-
     <div class="ui feed" >
       <div class="event">
         <div class="label">
@@ -19,13 +23,14 @@
         </div>
         <div class="content">
           <div class="date">
-
             <%= days=(Date.current-cat.created_at.to_date).to_i
-
               %> days ago
           </div>
-          <div class="summary">
-              <%= cat.title %>
+          <div class=" summary">
+              <%= link_to cat.title, job_path(cat.id) %>
+          </div>
+          <div class=" orange label">
+          <b> Category : <%= kategori.name %></b>
           </div>
         </div>
       </div>
@@ -33,4 +38,6 @@
 
   </div>
 
+    <% end %>
   <% end %>
+<% end %>

@@ -8,7 +8,7 @@
   <div class="item" name="category_id">Categories</div>
   <div class="menu">
       <% @category.each do |cat| %>
-      <div class="item" data-value="cat.id"><i></i> <%= cat.name%></div>
+          <%= link_to cat.name, root_path(cat.id), class: "item" %>
       <% end %>
   </div>
  </div>
