@@ -8,28 +8,29 @@
 
   </div>
 </div>
-  <% @job.each do |job| %>
+  <% @job.each do |cat| %>
 
   <div class="ui form segment" style="padding-top: 20px">
 
     <div class="ui feed" >
       <div class="event">
         <div class="label">
-        
+         <img src="">
         </div>
         <div class="content">
           <div class="date">
 
-            <%= days=(Date.current-job.created_at.to_date).to_i
+            <%= days=(Date.current-cat.created_at.to_date).to_i
 
               %> days ago
           </div>
           <div class="summary">
-              <%=  job.title   %>
+              <%= cat.title %>
           </div>
         </div>
       </div>
     </div>
 
   </div>
-<% end %>
+
+  <% end %>

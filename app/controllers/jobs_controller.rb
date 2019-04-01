@@ -5,15 +5,18 @@ class JobsController < ApplicationController
     #  @category=Category.all
       @job = Job.new
       @company = Company.new
+
   end
 
   def show
 
   end
   def index
-  #  @category=Category.all
-      @job=Job.all.order(created_at: :desc)
-    #  @company=Company.all
+
+#  @company=Company.all.order(created_at: :desc)#.include(:jobs)
+  @job=Job.all.order(created_at: :desc)#.include(:jobs)
+
+
   end
 
   def create
@@ -26,8 +29,9 @@ class JobsController < ApplicationController
           redirect_to jobs_path
         else
           render 'new'
+        #  redirect_to new_job_path
         end
-      
+
   end
 
 private
